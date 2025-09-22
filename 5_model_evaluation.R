@@ -10,6 +10,9 @@ library(pROC)
 roc_result <- roc(test_dataset$Churn, predicted_probs)
 auc(roc_result)
 
+## plot an roc curve
+plot(roc_result)
+
 #confusion matrix
 confusion_matrix = table(predicted_class, test_dataset$Churn)
 print(confusion_matrix)
@@ -34,5 +37,6 @@ prediction_results <- data.frame(
   predicted_values = predicted_class,
   actual_values = test_dataset$Churn
 )
+
 
 View(prediction_results)
